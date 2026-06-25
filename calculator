@@ -1,0 +1,49 @@
+html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mileage Reimbursement Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; background-color: #f4f4f9; }
+        .container { max-width: 400px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { color: #333; }
+        label { display: block; margin: 10px 0 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .result { margin-top: 20px; font-size: 1.2em; font-weight: bold; color: #28a745; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Mileage Calculator</h2>
+    <p>Rate: $0.725 per mile</p>
+    
+    <label for="miles">Enter Miles Driven:</label>
+    <input type="number" id="miles" placeholder="e.g. 50" min="0" step="any">
+    
+    <button onclick="calculateReimbursement()">Calculate</button>
+    
+    <div class="result" id="output">Total Reimbursement: $0.00</div>
+</div>
+
+<script>
+function calculateReimbursement() {
+    const miles = parseFloat(document.getElementById('miles').value);
+    const rate = 0.725;
+    
+    if (isNaN(miles) || miles < 0) {
+        document.getElementById('output').innerText = "Please enter a valid number of miles.";
+        return;
+    }
+    
+    const total = miles * rate;
+    document.getElementById('output').innerText = `Total Reimbursement: $${total.toFixed(2)}`;
+}
+</script>
+
+</body>
+</html> 
+</html>
